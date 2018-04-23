@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="RiaCustomersOrders.MainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"    
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:web="clr-namespace:RiaCustomersOrders.Web">
+
+    <Grid x:Name="LayoutRoot">
+        <dx:RiaInstantFeedbackDataSource Name="riaInstantSource" 
+                                         QueryName="GetCustomerOrdersQuery" 
+                                         KeyExpression="OrderID" 
+                                         UseExtendedDataQuery="True" >
+            
+            <dx:RiaInstantFeedbackDataSource.DomainContext>
+                <web:NorthwindContext/>
+            </dx:RiaInstantFeedbackDataSource.DomainContext>
+        </dx:RiaInstantFeedbackDataSource>
+        
+        <dxg:GridControl Name="grid" ItemsSource="{Binding ElementName=riaInstantSource, Path=Data}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn Name="colOrderID" FieldName="OrderID" />
+                <dxg:GridColumn Name="colCompany" FieldName="CompanyName" />
+                <dxg:GridColumn Name="colName" FieldName="ContactName" />
+                <dxg:GridColumn Name="colDate" FieldName="OrderDate" />
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView Name="view" AutoWidth="True" NavigationStyle="Row" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>
