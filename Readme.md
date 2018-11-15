@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [NorthwindService.cs](./CS/RiaCustomersOrders.Web/NorthwindService.cs) (VB: [NorthwindService.vb](./VB/RiaCustomersOrders.Web/NorthwindService.vb))
+* [MainPage.xaml](./CS/RiaCustomersOrders/MainPage.xaml) (VB: [MainPage.xaml](./VB/RiaCustomersOrders/MainPage.xaml))
+<!-- default file list end -->
 # RiaInstantFeedbackDataSource - How to show data from dependent tables
 
 
